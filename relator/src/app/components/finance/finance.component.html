@@ -1,0 +1,15 @@
+<form [formGroup]="financeForm" (ngSubmit)="nextPage()">
+  <label>Budget:
+    <select formControlName="budget" required>
+      <option *ngFor="let b of budgets" [value]="b">{{ b }}</option>
+    </select>
+  </label>
+  <label>Loan Status:
+    <select formControlName="loanStatus" required>
+      <option *ngFor="let l of loans" [value]="l">{{ l }}</option>
+    </select>
+  </label>
+  <label>Comments: <textarea formControlName="comments" required></textarea></label>
+  <button type="button" (click)="doSpeechPrefill()">Speak & Prefill</button>
+  <button type="submit" [disabled]="!financeForm.valid">Next</button>
+</form>

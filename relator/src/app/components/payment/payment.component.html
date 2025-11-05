@@ -1,0 +1,4 @@
+<form [formGroup]="payForm" (ngSubmit)="submit()">
+  <label>Payment Details: <input formControlName="paymentDetails" required></label>
+  <button type="submit" [disabled]="!payForm.valid">Pay & Submit</button>
+</form>

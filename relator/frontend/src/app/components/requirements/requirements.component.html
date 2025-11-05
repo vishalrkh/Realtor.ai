@@ -1,0 +1,20 @@
+<form [formGroup]="reqForm" (ngSubmit)="nextPage()">
+  <label>Area:
+    <select formControlName="area" required>
+      <option *ngFor="let a of areas" [value]="a">{{ a }}</option>
+    </select>
+  </label>
+  <label>Property Type:
+    <select formControlName="propertyType" required>
+      <option *ngFor="let p of propertyTypes" [value]="p">{{ p }}</option>
+    </select>
+  </label>
+  <label>School Preference: <input formControlName="schoolPreference" required></label>
+  <label>Traffic Level: <input formControlName="trafficLevel" required></label>
+  <label>Year Built: <input formControlName="yearBuilt" required></label>
+  <label>Shops Nearby: <input formControlName="shopsNearby" required></label>
+  <label>Desired Lifestyle: <input formControlName="desiredLifestyle" required></label>
+  <label>Comments: <textarea formControlName="comments" required></textarea></label>
+  <button type="button" (click)="doSpeechPrefill()">Speak & Prefill</button>
+  <button type="submit" [disabled]="!reqForm.valid">Next</button>
+</form>

@@ -1,0 +1,17 @@
+<form [formGroup]="demoForm" (ngSubmit)="nextPage()">
+  <label>Name: <input formControlName="name" required></label>
+  <label>Contact: <input formControlName="contact" required></label>
+  <label>Email: <input formControlName="email" required></label>
+  <label>Occupation: <input formControlName="occupation" required></label>
+  <label>Family Size: <input formControlName="familySize" required type="number"></label>
+  <label>Service Type:
+    <select formControlName="serviceType" required>
+      <option *ngFor="let s of serviceTypes" [value]="s">{{ s }}</option>
+    </select>
+  </label>
+  <label>Preferences: <input formControlName="preferences" required></label>
+  <label>Comments: <textarea formControlName="comments" required></textarea></label>
+
+  <button type="button" (click)="doSpeechPrefill()" [disabled]="loading">Speak & Prefill</button>
+  <button type="submit" [disabled]="!demoForm.valid">Next</button>
+</form>
